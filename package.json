@@ -1,0 +1,39 @@
+{
+  "name": "wcsimagepipeline",
+  "version": "1.0.0",
+  "description": "wcs image pipeline",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index; node scripts/compressImages.mjs; node scripts/convertImagesToWebp.mjs",
+    "fetch": "node fetchAirtableImages.mjs; node updateAllImages.mjs; node scripts/compressImages.mjs; node scripts/convertImagesToWebp.mjs"
+  },
+  "pkg": {
+    "assets": [
+      "node_modules/.prisma/client/*.node"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/janakhpon/wcsimagepipeline.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/janakhpon/wcsimagepipeline/issues"
+  },
+  "homepage": "https://github.com/janakhpon/wcsimagepipeline#readme",
+  "dependencies": {
+    "@prisma/client": "^4.6.1",
+    "axios": "^1.2.0",
+    "dotenv": "^16.0.3",
+    "prisma": "^4.6.1",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "imagemin": "^8.0.1",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-pngquant": "^9.0.2",
+    "imagemin-webp": "^7.0.0"
+  }
+}

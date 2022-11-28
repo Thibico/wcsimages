@@ -1,0 +1,306 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model ecosystems {
+  name                           String  @id @db.VarChar(255)
+  name_mm                        String?
+  description                    String
+  description_mm                 String?
+  distribution                   String
+  distribution_mm                String?
+  abiotic_environment            String
+  temperature_category           String? @db.VarChar(50)
+  temperature_text               String?
+  temperature_text_mm            String?
+  precipitation_category         String? @db.VarChar(50)
+  precipitation_text             String?
+  precipitation_text_mm          String?
+  soil_category                  String? @db.VarChar(50)
+  soil_text                      String?
+  soil_text_mm                   String?
+  elevation_category             String? @db.VarChar(50)
+  elevation_text                 String?
+  elevation_text_mm              String?
+  abiotic_environment_mm         String?
+  assessment_summary             String
+  assessment_summary_mm          String?
+  collapse_definition            String
+  collapse_definition_mm         String?
+  id                             String  @db.VarChar(50)
+  code                           String  @db.VarChar(100)
+  in_functional_group            String
+  in_functional_group_mm         String
+  in_biome                       String
+  in_biome_mm                    String
+  in_realm                       String
+  in_realm_mm                    String
+  criteria_a1                    String  @db.VarChar(50)
+  criteria_a1a                   String  @db.VarChar(50)
+  criteria_a2b                   String  @db.VarChar(100)
+  criteria_a3                    String  @db.VarChar(50)
+  criteria_b1                    String  @db.VarChar(100)
+  criteria_b2                    String  @db.VarChar(100)
+  criteria_b3                    String  @db.VarChar(50)
+  criteria_c1                    String  @db.VarChar(100)
+  criteria_c2a                   String  @db.VarChar(100)
+  criteria_c2b                   String  @db.VarChar(100)
+  criteria_c3                    String  @db.VarChar(100)
+  criteria_d1                    String  @db.VarChar(100)
+  criteria_d2a                   String  @db.VarChar(100)
+  criteria_d2b                   String  @db.VarChar(100)
+  criteria_d3                    String  @db.VarChar(100)
+  criteria_e                     String  @db.VarChar(100)
+  lower_criteria                 String  @db.VarChar(100)
+  upper_criteria                 String  @db.VarChar(100)
+  outcome_criteria               String  @db.VarChar(100)
+  assessment_outcome             String? @db.VarChar(100)
+  national_iucn_status           String? @db.VarChar(100)
+  authors                        String?
+  native_biota                   String
+  species_flora                  String?
+  species_flora_mm               String?
+  other_flora                    String?
+  other_flora_mm                 String?
+  species_fauna                  String?
+  species_fauna_mm               String?
+  other_fauna                    String?
+  other_fauna_mm                 String?
+  other_species                  String?
+  key_processes_and_interactions String
+  threats                        String
+  threats_mm                     String?
+  threats_main                   String?
+  threats_main_mm                String?
+  year_published                 Int
+  date_assessed                  String? @db.VarChar(50)
+  assessed_by                    String?
+  reviewed_by                    String?
+  contributed_by                 String?
+  criteria_a_summary             String
+  criteria_a_summary_mm          String?
+  criteria_b_summary             String
+  criteria_b_summary_mm          String?
+  criteria_c_summary             String
+  criteria_c_summary_mm          String?
+  criteria_d_summary             String
+  criteria_d_summary_mm          String?
+  criteria_e_summary             String
+  criteria_e_summary_mm          String?
+  ecosystems_image               String?
+  in_state_region                String? @db.VarChar(100)
+  ckan_id                        String  @db.VarChar(100)
+  geoserver_id                   String? @db.VarChar(200)
+  ecosystem_reference            String?
+  profile_page                   String  @db.VarChar(5)
+}
+
+model images {
+  id        String  @id @db.VarChar(255)
+  filenames String?
+  images    String?
+  urls      String?
+  category  String  @db.VarChar(50)
+  changed   Boolean @default(false)
+}
+
+model kba {
+  kba            String  @db.VarChar(100)
+  kba_name_mm    String? @db.VarChar(100)
+  original_name  String  @db.VarChar(100)
+  id             String  @id @db.VarChar(100)
+  kba_year       Int
+  kba_type       String? @db.VarChar(10)
+  species_sc     Int
+  threat_score   Int
+  site_score     Int
+  site_prior     String? @db.VarChar(5)
+  kba_type_biome String? @db.VarChar(100)
+  species        String? @db.VarChar(200)
+}
+
+model marine {
+  field_1        Int
+  layer_category String  @db.VarChar(50)
+  layer_group    String  @db.VarChar(100)
+  layer          String  @id @db.VarChar(100)
+  shapefile_name String? @db.VarChar(150)
+  type           String? @db.VarChar(10)
+  temporal_bool  String? @db.VarChar(10)
+  months         String? @db.VarChar(100)
+}
+
+model other_fauna {
+  common_name    String @db.VarChar(100)
+  index          Int    @id
+  common_name_mm String @db.VarChar(100)
+}
+
+model other_flora {
+  common_name    String @db.VarChar(100)
+  index          Int    @id
+  common_name_mm String @db.VarChar(100)
+}
+
+model other_species {
+  Name  String @db.VarChar(100)
+  index Int    @id
+}
+
+model protectedareas {
+  name                           String  @db.VarChar(100)
+  name_mm                        String?
+  mapbox_name                    String? @db.VarChar(200)
+  id                             String  @id @db.VarChar(100)
+  designation                    String? @db.VarChar(100)
+  designation_mm                 String? @db.VarChar(100)
+  eco_site                       String? @db.VarChar(100)
+  eval_year                      Int?
+  designation_type               String? @db.VarChar(100)
+  status                         String? @db.VarChar(100)
+  status_mm                      String? @db.VarChar(100)
+  governance_type                String?
+  governance_type_mm             String?
+  management_authority           String?
+  management_authority_mm        String?
+  management_status              String?
+  in_state_region                String? @db.VarChar(100)
+  in_state_region_mm             String? @db.VarChar(200)
+  boundary_mm                    String? @db.VarChar(200)
+  boundary                       String? @db.VarChar(200)
+  protection_level               String? @db.VarChar(100)
+  protection_level_mm            String? @db.VarChar(100)
+  main_purposes                  String?
+  main_purposes_mm               String?
+  habitat_types                  String?
+  description                    String?
+  description_mm                 String?
+  tourism                        String?
+  tourism_mm                     String?
+  natural_resources_biodiversity String?
+  natural_resources_mm           String?
+  threats_txt                    String?
+  threats_subcategory_inside     String?
+  threats_subcategory_inside_mm  String?
+  threats_subcategory_outside    String?
+  threats_subcategory_outside_mm String?
+  designaton_date                String? @db.VarChar(100)
+  established_year               String?
+  area_acre                      Int?
+  area_ha                        Int?
+  area_original                  Int?
+  downsize_events                Int?
+  total_area_downsized           Int?
+  bio_unit                       String?
+  bio_unit_n                     String?
+  species_flora                  String?
+  species_flora_mm               String?
+  other_flora                    String?
+  other_flora_mm                 String?
+  species_fauna                  String?
+  species_fauna_mm               String?
+  other_fauna                    String?
+  other_fauna_mm                 String?
+  other_species                  String?
+  protected_area_image           String?
+  ckan_id                        String? @db.VarChar(200)
+  geoserver_id                   String? @db.VarChar(200)
+  protected_area_reference       String?
+  profile_page                   String  @db.VarChar(5)
+}
+
+model referencetable {
+  id           String
+  index        Int     @id
+  title        String?
+  author       String?
+  year         Int?
+  published_by String?
+  apa_citation String?
+  url          String?
+  ckan_source  String?
+}
+
+model species {
+  linked_name                         String  @id @db.VarChar(200)
+  scientific_name                     String  @db.VarChar(100)
+  common_name                         String
+  other_name                          String?
+  id                                  String? @db.VarChar(100)
+  common_name_mm                      String?
+  other_name_mm                       String?
+  seasonal_status_bird                String? @db.VarChar(50)
+  national_iucn_status                String? @db.VarChar(50)
+  national_iucn_status_mm             String? @db.VarChar(50)
+  global_iucn_status                  String? @db.VarChar(50)
+  global_iucn_status_mm               String? @db.VarChar(50)
+  species_order                       String? @db.VarChar(100)
+  species_family                      String? @db.VarChar(100)
+  species_class                       String? @db.VarChar(100)
+  species_class_mm                    String? @db.VarChar(100)
+  justification                       String?
+  justification_mm                    String?
+  distribution                        String?
+  distribution_mm                     String?
+  measurements                        String?
+  measurement_length                  String? @db.VarChar(200)
+  measurement_length_mm               String? @db.VarChar(200)
+  measurement_weight                  String? @db.VarChar(200)
+  measurement_weight_mm               String? @db.VarChar(200)
+  threats_to_survival                 String?
+  threats_to_survival_mm              String?
+  habitat_ecology                     String?
+  habitat_ecology_mm                  String?
+  conservation_research_undertaken    String?
+  conservation_research_undertaken_mm String?
+  conservation_research_needed        String?
+  conservation_research_needed_mm     String?
+  use_and_trade                       String?
+  use_and_trade_mm                    String?
+  wild_population                     String?
+  wild_population_mm                  String?
+  population_trend                    String?
+  population_trend_mm                 String?
+  mm_population                       String? @db.VarChar(100)
+  mm_population_mm                    String? @db.VarChar(100)
+  global_population                   String? @db.VarChar(100)
+  global_population_mm                String? @db.VarChar(100)
+  in_protected_area                   String?
+  in_kba                              String?
+  in_state_region                     String?
+  threats_subcategory                 String?
+  threats_subcategory_mm              String?
+  threats_main                        String?
+  threats_main_mm                     String?
+  assesors                            String?
+  reviewers                           String?
+  species_image                       String?
+  source_link                         String? @db.VarChar(200)
+  ckan_id                             String? @db.VarChar(200)
+  geoserver_id                        String? @db.VarChar(100)
+  species_reference                   String?
+  in_ecosytems                        String?
+  sub_cat                             String
+  profile_page                        String? @db.VarChar(5)
+}
+
+model species_plants {
+  linked_name          String  @db.VarChar(100)
+  index                Int     @id
+  scientific_name      String  @db.VarChar(100)
+  common_name          String?
+  other_common_name    String?
+  name_mm              String  @db.VarChar(255)
+  major_type           String  @db.VarChar(100)
+  sp_order             String  @db.VarChar(100)
+  family               String  @db.VarChar(100)
+  genus                String  @db.VarChar(100)
+  species_plants_image String  @db.VarChar(255)
+  source_link          String  @db.VarChar(255)
+  profile_page         String  @db.VarChar(10)
+}
