@@ -1,6 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 const request = require('request');
+const axios = require('axios');
+require('dotenv').config()
 
 const { PrismaClient } = require('@prisma/client');
 
@@ -63,16 +65,15 @@ async function main() {
     let updatedDate = `Updated on ${new Date().toISOString()}`;
     try {
         fs.writeFileSync("log.txt", updatedDate);
-        // file written successfully
     } catch (err) {
         console.error(err);
     }
-
 }
 
 main()
     .then(async () => {
         await prisma.$disconnect();
+        await axios.get(process.env.VERCEL_WEBHOOK)
     })
     .catch(async (e) => {
         console.error(e);
