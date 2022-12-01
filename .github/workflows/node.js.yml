@@ -14,7 +14,8 @@ on:
       - webhook
 
 env:
-  DATABASE_URL: ${{ secrets.DATABASE_URL }} 
+  DATABASE_URL: ${{ secrets.DATABASE_URL }}
+  VERCEL_WEBHOOK: ${{ secrets.VERCEL_WEBHOOK }}
 
 jobs:
   build:
