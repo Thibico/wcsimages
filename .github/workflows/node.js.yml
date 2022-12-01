@@ -8,10 +8,13 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  schedule:
+    - cron: '* * * * 1'
   workflow_dispatch:
   repository_dispatch:
     types:
       - webhook
+
 env:
   DATABASE_URL: ${{ secrets.DATABASE_URL }} 
 
