@@ -1,8 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 const request = require('request');
-const axios = require('axios');
-require('dotenv').config()
 
 const { PrismaClient } = require('@prisma/client');
 
@@ -73,7 +71,6 @@ async function main() {
 main()
     .then(async () => {
         await prisma.$disconnect();
-        await axios.get(process.env.VERCEL_WEBHOOK)
     })
     .catch(async (e) => {
         console.error(e);

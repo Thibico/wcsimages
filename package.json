@@ -4,7 +4,7 @@
   "description": "wcs image pipeline",
   "main": "index.js",
   "scripts": {
-    "start": "node index; node scripts/compressImages.mjs; node scripts/convertImagesToWebp.mjs",
+    "start": "node index; node scripts/compressImages.mjs; node scripts/convertImagesToWebp.mjs; node scripts/triggerVercelBuild.mjs;",
     "fetch": "node fetchAirtableImages.mjs; node updateAllImages.mjs; node scripts/compressImages.mjs; node scripts/convertImagesToWebp.mjs"
   },
   "pkg": {
