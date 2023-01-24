@@ -304,3 +304,24 @@ model species_plants {
   source_link          String  @db.VarChar(255)
   profile_page         String  @db.VarChar(10)
 }
+
+model marine_pages_rendering {
+  unique_id                          Int     @id
+  layer_group_name                   String
+  rendering                          String  @db.VarChar(50)
+  display_type                       String  @db.VarChar(50)
+  grid_columns                       Int
+  constant_layers                    String  @db.VarChar(250)
+  constant_layer_text                String  @db.VarChar(250)
+  number_of_layers                   Int
+  notes                              String
+  text                               String
+  content_type                       String  @db.VarChar(50)
+  bouding_extent_lat_y_top_left      Float
+  bouding_extent_long_x_top_left     Float
+  bouding_extent_lat_y_bottom_right  Float
+  bouding_extent_long_x_bottom_right Float
+  chapter                            String  @db.VarChar(50)
+  figure_number                      Float
+  map_preview                        String?
+}

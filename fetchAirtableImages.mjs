@@ -27,6 +27,13 @@ const loadAll = async () => {
       "fields%5B%5D=index&fields%5B%5D=species_plants_image&maxRecords=10000"
     );
     jsonWriter("speciesPlantsImages", speciesPlantsImages);
+
+    const marinePagesImages = await fetchImageTable(
+      "marine_pages_rendering",
+      "fields%5B%5D=unique_id&fields%5B%5D=map_preview&maxRecords=10000"
+    );
+    jsonWriter("marinePagesImages", marinePagesImages);
+    
   } catch (err) {
     console.error(`❌ Error (${err.code}): ${err.message}`);
   } finally {

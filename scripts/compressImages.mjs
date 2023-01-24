@@ -7,7 +7,7 @@ import url from 'url';
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const categories = ['ecosystems', 'protected_area', 'species', 'species_plants'];
+const categories = ['ecosystems', 'protected_area', 'species', 'species_plants', 'marine_pages_rendering'];
 
 const compressImages = async (category) => {
   const destFileName = path.join(
