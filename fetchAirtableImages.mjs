@@ -30,7 +30,7 @@ const loadAll = async () => {
 
     const marinePagesImages = await fetchImageTable(
       "marine_pages_rendering",
-      "fields%5B%5D=unique_id&fields%5B%5D=map_preview&maxRecords=10000"
+      "fields%5B%5D=unique_id&fields%5B%5D=marine_pages_rendering_image&maxRecords=10000"
     );
     jsonWriter("marinePagesImages", marinePagesImages);
     

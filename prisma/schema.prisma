@@ -323,5 +323,5 @@ model marine_pages_rendering {
   bouding_extent_long_x_bottom_right Float
   chapter                            String  @db.VarChar(50)
   figure_number                      Float
-  map_preview                        String?
+  marine_pages_rendering_image                  String?
 }
