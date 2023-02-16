@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/janakhpon/wcsimagepipeline#readme",
   "dependencies": {
-    "@prisma/client": "^4.9.0",
+    "@prisma/client": "^4.10.1",
     "axios": "^1.2.0",
     "dotenv": "^16.0.3",
     "request": "^2.88.2"
@@ -34,6 +34,6 @@
     "imagemin-mozjpeg": "^10.0.0",
     "imagemin-pngquant": "^9.0.2",
     "imagemin-webp": "^7.0.0",
-    "prisma": "^4.9.0"
+    "prisma": "^4.10.1"
   }
 }

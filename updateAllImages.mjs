@@ -7,7 +7,7 @@ import request from "request";
 import { PrismaClient } from "@prisma/client";
 import { jsonWriter } from "./utils/fileWriter.mjs";
 
-// const speciesPlantsImages = require("./data/speciesPlantsImages.json");
+const speciesPlantsImages = require("./data/speciesPlantsImages.json");
 const speciesImages = require("./data/speciesImages.json");
 const ecosystemImages = require("./data/ecosystemImages.json");
 const protectedareasImages = require("./data/protectedareasImages.json");
@@ -28,12 +28,11 @@ async function main() {
   };
 
   const extractImages = async (data, name, id) => {
-    
     for (const eachObj of data) {
       try {
         const uniqueid = eachObj.fields?.[id];
         const images = eachObj.fields?.[`${name}_image`];
-        console.log('images', images)
+        console.log("images", images);
         let imageIDHost = [];
         let imageUrlHost = [];
         let filenameHost = [];
@@ -63,10 +62,10 @@ async function main() {
     }
   };
 
-  // await extractImages(speciesPlantsImages, "species_plants", "index");
-  // await extractImages(speciesImages, "species", "linked_name");
-  // await extractImages(ecosystemImages, "ecosystems", "name");
-  // await extractImages(protectedareasImages, "protected_area", "id");
+  await extractImages(speciesPlantsImages, "species_plants", "index");
+  await extractImages(speciesImages, "species", "linked_name");
+  await extractImages(ecosystemImages, "ecosystems", "name");
+  await extractImages(protectedareasImages, "protected_area", "id");
   await extractImages(marinePagesImages, "marine_pages_rendering", "unique_id");
   await jsonWriter("images", imageHost);
 

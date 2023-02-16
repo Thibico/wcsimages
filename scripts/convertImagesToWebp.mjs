@@ -1,12 +1,18 @@
-import imagemin from 'imagemin';
-import imageminWebp from 'imagemin-webp';
-import path from 'path';
-import url from 'url';
+import imagemin from "imagemin";
+import imageminWebp from "imagemin-webp";
+import path from "path";
+import url from "url";
 
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const categories = ['ecosystems', 'protected_area', 'species', 'species_plants', 'marine_pages_rendering'];
+const categories = [
+  "ecosystems",
+  "protected_area",
+  "species",
+  "species_plants",
+  "marine_pages_rendering",
+];
 
 const convertImages = async (category) => {
   const destFileName = path.join(
@@ -21,10 +27,10 @@ const convertImages = async (category) => {
         quality: 80,
         resize: {
           width: 800,
-          height: 0
-        }
-      })
-    ]
+          height: 0,
+        },
+      }),
+    ],
   });
   console.log(`✅ Successfully optimized images for => ${category} \n`);
 };
