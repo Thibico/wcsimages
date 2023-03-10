@@ -18,7 +18,7 @@ const categories = [
 const compressImages = async (category) => {
   const destFileName = path.join(
     __dirname,
-    `../public/assets/${category}/raw/*.{jpg,png}`
+    `../public/assets/${category}/raw/*.{jpg,png,JPG,PNG}`
   );
   const destPath = path.join(__dirname, `../public/assets/${category}/resized`);
   await imagemin([destFileName], {

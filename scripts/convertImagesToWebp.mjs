@@ -17,7 +17,7 @@ const categories = [
 const convertImages = async (category) => {
   const destFileName = path.join(
     __dirname,
-    `../public/assets/${category}/resized/*.{jpg,png}`
+    `../public/assets/${category}/resized/*.{jpg,png,JPG,PNG}`
   );
   const destPath = path.join(__dirname, `../public/assets/${category}/images`);
   await imagemin([destFileName], {
